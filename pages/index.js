@@ -18,7 +18,7 @@ export default function Home() {
           dataset.map((val, index) => {
             return (
               <div className="panel-card">
-                <div className="panel-title">ข้อมูลชุดที่ {index+1} <span onClick={() => onRemove(index)}>X</span></div>
+                <div className="panel-title">ข้อมูลชุดที่ {index+1} <span onClick={() => onRemove(index)}>นำออก</span></div>
                 <FormComponent item={{data: val, index: index}} />
               </div>
             )

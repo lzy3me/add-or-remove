@@ -8,8 +8,8 @@ const FormComponent = (props) => {
     const [zipcode, setZipcode] = useState(props.item?.data.zipcode)
 
     useEffect(() => {
-        onUpdateDataset(props.item?.index, username, email, zipcode)
-        console.log('will update')
+        console.log('FormComponent ->', dataset)
+        onUpdateDataset(props.item?.index, {username: username, email: email, zipcode: zipcode})
     }, [username, email, zipcode])
 
     return (

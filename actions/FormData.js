@@ -7,13 +7,15 @@ const FormData = () => {
     const onAdded = () => setIsAdded(true)
     
     useEffect(() => {
-        if (isAdded)
-        onAppend()
-        setIsAdded(false)
+        if (isAdded) {
+            onAppend()
+            setIsAdded(false)
+        }
     }, [isAdded])
 
     const onAppend = () => {
         const temp = dataset
+        console.log('TEMP-APPEND ->',temp)
         temp.push({
             username: '',
             email: '',
@@ -24,11 +26,11 @@ const FormData = () => {
         console.log('appended', dataset)
     }
 
-    const onUpdateDataset = (index, username, email, zipcode) => {
-        console.log('parseData', {id: index, data: {username: username, email: email, zipcode: zipcode}})
-        const temp = dataset
-        temp.splice(index, 1, {username: username, email: email, zipcode: zipcode})
-        updateDataset(temp)
+    const onUpdateDataset = (index, datas) => {
+        let newArr = [...dataset]
+        console.log(newArr)
+        newArr[index] = datas
+        updateDataset(newArr)
 
         console.log('updated', {dataset: dataset})
     }
