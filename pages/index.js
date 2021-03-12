@@ -2,9 +2,16 @@ import Head from 'next/head'
 import React from 'react'
 import FormData from '../actions/FormData'
 import FormComponent from '../components/FormComponent'
+import FormDataContext from '../context/FormDataContext'
 
 export default function Home() {
   const [dataset, onAdded, onUpdateDataset, onRemove] = FormData()
+
+  const valueContext = {
+    onUpdateDataset
+  }
+
+  console.log(dataset)
 
   return (
     <div>
@@ -17,9 +24,11 @@ export default function Home() {
         {
           dataset.map((val, index) => {
             return (
-              <div className="panel-card">
+              <div className="panel-card" key={index}>
                 <div className="panel-title">ข้อมูลชุดที่ {index+1} <span onClick={() => onRemove(index)}>นำออก</span></div>
-                <FormComponent item={{data: val, index: index}} />
+                <FormDataContext.Provider value={valueContext}>
+                  <FormComponent item={{data: val, index: index}} />
+                </FormDataContext.Provider>
               </div>
             )
           })

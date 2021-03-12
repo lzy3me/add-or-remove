@@ -1,25 +1,33 @@
-import React, { useState, useEffect } from 'react'
-import FormData from '../actions/FormData'
+import React, { useRef } from 'react'
+import { useFormDataContext } from '../context/FormDataContext'
 
 const FormComponent = (props) => {
-    const [dataset, onAdded, onUpdateDataset, onRemove] = FormData()
-    const [username, setUsername] = useState(props.item?.data.username)
-    const [email, setEmail] = useState(props.item?.data.email)
-    const [zipcode, setZipcode] = useState(props.item?.data.zipcode)
+    const { onUpdateDataset } = useFormDataContext()
+    const u = useRef(props.item.data.username)
+    const e = useRef(props.item.data.email)
+    const z = useRef(props.item.data.zipcode)
 
-    useEffect(() => {
-        console.log('FormComponent ->', dataset)
-        onUpdateDataset(props.item?.index, {username: username, email: email, zipcode: zipcode})
-    }, [username, email, zipcode])
+    const onChange = () => {
+        const name = u.current.value
+        const email = e.current.value
+        const zip = z.current.value
+
+        const obj = {
+            username: name,
+            email: email,
+            zipcode: zip
+        }
+        onUpdateDataset(props.item.index, obj)
+    }
 
     return (
         <div className="panel-body">
             <label>ชื่อ </label>
-            <input type="text" name="user" value={username} onChange={e => setUsername(e.target.value)} required={true} />
+            <input type="text" name="username" value={props.item.data.username} ref={u} onChange={onChange} required={true} />
             <label>อีเมล</label>
-            <input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)} required={true} />
+            <input type="email" name="email" value={props.item.data.email} ref={e} onChange={onChange} required={true} />
             <label>รหัสไปรษณี</label>
-            <input type="number" name="zipcode" value={zipcode} onChange={e => setZipcode(e.target.value)} />
+            <input type="number" name="zipcode" value={props.item.data.zipcode} onChange={onChange} ref={z} />
         </div>
     )
 }

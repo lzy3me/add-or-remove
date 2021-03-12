@@ -18,11 +18,11 @@ a {
 }
 
 .panel-card {
-  margin: 10px 20px;
+  margin: 20px 20px;
   padding: 10px 20px;
   border-radius: 10px;
   background-color: #f1f1f1;
-  box-shadow: 2px 4px #00000020;
+  box-shadow: 2px 4px 6px #00000020;
 }
 
 .panel-title {

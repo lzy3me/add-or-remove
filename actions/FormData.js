@@ -1,5 +1,11 @@
 import { useState, useEffect } from 'react'
 
+const staticDataset = {
+    username: '',
+    email: '',
+    zipcode: '',
+}
+
 const FormData = () => {
     const [dataset, updateDataset] = useState([])
     const [isAdded, setIsAdded] = useState(false)
@@ -14,32 +20,33 @@ const FormData = () => {
     }, [isAdded])
 
     const onAppend = () => {
-        const temp = dataset
-        console.log('TEMP-APPEND ->',temp)
-        temp.push({
-            username: '',
-            email: '',
-            zipcode: ''
-        })
-        updateDataset(temp)
+        updateDataset(prev => [...prev, staticDataset])
         
         console.log('appended', dataset)
     }
 
     const onUpdateDataset = (index, datas) => {
         let newArr = [...dataset]
-        console.log(newArr)
+        console.log('Old Dataset-->', newArr)
         newArr[index] = datas
         updateDataset(newArr)
 
         console.log('updated', {dataset: dataset})
     }
 
-    const onRemove = (target) => {
-        updateDataset(dataset.filter((val, index) => index !== target))
+    const onRemove = (target, e) => {
+        updateDataset(prev => {
+            const newArr = [...prev]
+            newArr.splice(target, 1)
+            return [...newArr]
+        })
 
-        console.log('removed', {id: [target], data: dataset})
+        // console.log('removed', {id: target, data: dataset})
     }
+
+    useEffect(() => {
+        console.log(dataset)
+    }, [dataset])
 
     return [dataset, onAdded, onUpdateDataset, onRemove]
 }
