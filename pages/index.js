@@ -5,13 +5,17 @@ import FormComponent from '../components/FormComponent'
 import FormDataContext from '../context/FormDataContext'
 
 export default function Home() {
-  const [dataset, onAppend, onUpdateDataset, onRemove] = FormData()
+  const [dataset, onAppend, onUpdateDataset, onRemove, onSubmit] = FormData()
 
   const valueContext = {
-    onUpdateDataset
+    onUpdateDataset,
+    onRemove
   }
 
-  console.log(dataset)
+  const onSubmitted = e => {
+    // e.preventDefault()
+    onSubmit()
+  }
 
   return (
     <div>
@@ -20,16 +24,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <form>
+      <form onSubmit={onSubmitted}>
         {
           dataset.map((val, index) => {
             return (
-              <div className="panel-card" key={index}>
-                <div className="panel-title">ข้อมูลชุดที่ {index+1} <span onClick={() => onRemove(index)}>นำออก</span></div>
-                <FormDataContext.Provider value={valueContext}>
-                  <FormComponent item={{data: val, index: index}} />
-                </FormDataContext.Provider>
-              </div>
+              <FormDataContext.Provider value={valueContext}>
+                <FormComponent item={{ data: val, index: index }} />
+              </FormDataContext.Provider>
             )
           })
         }
