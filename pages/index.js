@@ -5,7 +5,7 @@ import FormComponent from '../components/FormComponent'
 import FormDataContext from '../context/FormDataContext'
 
 export default function Home() {
-  const [dataset, onAdded, onUpdateDataset, onRemove] = FormData()
+  const [dataset, onAppend, onUpdateDataset, onRemove] = FormData()
 
   const valueContext = {
     onUpdateDataset
@@ -35,7 +35,7 @@ export default function Home() {
         }
 
         <div className="buttonGroup">
-          <button type="button" onClick={onAdded}>เพิ่ม</button>
+          <button type="button" onClick={onAppend}>เพิ่ม</button>
           <button type="submit">ส่ง</button>
         </div>
       </form>

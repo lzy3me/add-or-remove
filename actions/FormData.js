@@ -8,16 +8,6 @@ const staticDataset = {
 
 const FormData = () => {
     const [dataset, updateDataset] = useState([])
-    const [isAdded, setIsAdded] = useState(false)
-    
-    const onAdded = () => setIsAdded(true)
-    
-    useEffect(() => {
-        if (isAdded) {
-            onAppend()
-            setIsAdded(false)
-        }
-    }, [isAdded])
 
     const onAppend = () => {
         updateDataset(prev => [...prev, staticDataset])
@@ -40,15 +30,10 @@ const FormData = () => {
             newArr.splice(target, 1)
             return [...newArr]
         })
-
-        // console.log('removed', {id: target, data: dataset})
+        console.log('removed', {id: target, data: dataset})
     }
 
-    useEffect(() => {
-        console.log(dataset)
-    }, [dataset])
-
-    return [dataset, onAdded, onUpdateDataset, onRemove]
+    return [dataset, onAppend, onUpdateDataset, onRemove]
 }
 
 export default FormData
