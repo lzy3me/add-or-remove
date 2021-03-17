@@ -22,6 +22,7 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+<<<<<<< HEAD
 
 ## Test
 
@@ -32,6 +33,18 @@ $ npm run test
 # e2e tests
 $ npm run test:e2e
 
+=======
+
+## Test
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+>>>>>>> 6df8f6aa7cd9b16a0cf32bf2897d96d211af7196
 # test coverage
 $ npm run test:cov
 ```
