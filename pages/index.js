@@ -24,7 +24,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <form onSubmit={onSubmitted}>
+      <form onSubmit={onSubmitted} className="form-smooth">
         {
           dataset.map((val, index) => {
             return (
