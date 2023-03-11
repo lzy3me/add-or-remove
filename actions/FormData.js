@@ -15,11 +15,11 @@ const staticDataset = {
 const FormData = () => {
   const [dataset, updateDataset] = useState([]);
 
-  useEffect(async () => {
+  useEffect(() => {
     updateDataset(JSON.parse(localStorage.getItem("list_item")));
 		
     // use when have working backend
-    // await getAllUsers().then(val => {
+    // getAllUsers().then(val => {
     //     updateDataset(val.data)
     // })
   }, []);

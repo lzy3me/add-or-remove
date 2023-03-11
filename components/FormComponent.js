@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { useFormDataContext } from "../context/FormDataContext";
 
 const FormComponent = (props) => {
-  console.log("🚀 ~ file: FormComponent.js:5 ~ FormComponent ~ props:", props);
   const { onUpdateDataset, onRemove } = useFormDataContext();
   const u = useRef(props.item.data?.username);
   const e = useRef(props.item.data?.email);

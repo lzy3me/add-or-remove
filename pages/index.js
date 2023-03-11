@@ -22,6 +22,9 @@ export default function Home() {
       <Head>
         <title>Add or Remove</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="author" content="lzy3me" />
       </Head>
 
       <form onSubmit={onSubmitted} className="form-smooth">
