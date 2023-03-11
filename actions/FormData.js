@@ -16,7 +16,12 @@ const FormData = () => {
   const [dataset, updateDataset] = useState([]);
 
   useEffect(() => {
-    updateDataset(JSON.parse(localStorage.getItem("list_item")));
+    let datas = localStorage.getItem("list_item");
+    datas = JSON.parse(datas);
+    if (!datas)
+      datas = [staticDataset];
+      
+    updateDataset(datas);
 		
     // use when have working backend
     // getAllUsers().then(val => {

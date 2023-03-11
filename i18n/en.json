@@ -1,0 +1,10 @@
+{
+  "title": "Add or Remove",
+  "card_name": "Dataset",
+  "name": "Name",
+  "email": "E-mail",
+  "postcode": "Postcode",
+  "add": "Add new Dataset",
+  "submit": "Save Dataset",
+  "remove": "Remove"
+}
