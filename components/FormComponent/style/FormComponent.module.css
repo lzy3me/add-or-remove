@@ -1,0 +1,53 @@
+.panel input {
+  padding: 8px 5px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 2px 2px #00000020;
+}
+
+.panel_card {
+  margin: 20px 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  box-shadow: 2px 4px 6px #00000020;
+}
+
+.panel_title {
+  font-weight: bold;
+}
+
+.panel_title span {
+  float: right;
+  color: #fe0000;
+  cursor: pointer;
+}
+
+.panel_body {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+@media (max-width: 1000px) {
+  .panel_body {
+    display: grid;
+    grid-template-columns: auto;
+  }
+}
+
+.panel_body label {
+  margin: 0 10px;
+}
+
+.panel_body input {
+  padding: 8px 5px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 2px 2px #00000020;
+}
+
+.panel_item {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+}
